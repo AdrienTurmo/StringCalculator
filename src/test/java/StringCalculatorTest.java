@@ -19,7 +19,25 @@ public class StringCalculatorTest {
 
         int result = StringCalculator.add(numbers);
 
-
         assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void should_return_ten_when_passed_ten_as_string() throws Exception {
+        String numbers = "10";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(10);
+    }
+
+    @Test
+    public void should_return_fifty_when_passed_fifty_as_string() throws Exception {
+        String numbers = "50";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(50);
+    }
+
 }
