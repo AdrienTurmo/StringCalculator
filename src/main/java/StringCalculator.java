@@ -1,11 +1,22 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
-        if (numbers.equals("")|| numbers.equals(",")) {
+        if (numbers.equals("") || numbers.equals(",")) {
             return 0;
         }
-        numbers = numbers.split(",")[0];
-        return stringToInt(numbers);
+
+        String[] numbersTable = numbers.split(",");
+
+        if (numbersTable.length == 1) {
+            return stringToInt(numbers);
+        }
+        if (numbersTable[0].equals("0")) {
+            return stringToInt(numbersTable[1]);
+        }
+        if (numbersTable[1].equals("0")) {
+            return stringToInt(numbersTable[0]);
+        }
+        return 0;
     }
 
     private static int stringToInt(String number) {

@@ -57,4 +57,13 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void should_return_one_when_passed_zero_and_one() throws Exception {
+        String numbers = "0,1";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(1);
+    }
 }
