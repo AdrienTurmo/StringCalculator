@@ -4,6 +4,7 @@ public class StringCalculator {
         if (numbers.equals("")|| numbers.equals(",")) {
             return 0;
         }
+        numbers = numbers.split(",")[0];
         return stringToInt(numbers);
     }
 
