@@ -69,7 +69,11 @@ public class StringCalculatorTest {
 
     @Test
     public void should_return_three_when_passing_one_one_and_one() throws Exception {
+        String numbers = "1,1,1";
 
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(3);
 
     }
 }

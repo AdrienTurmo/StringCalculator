@@ -1,19 +1,15 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
-        if (numbers.equals("")) {
-            return 0;
-        }
-
         String[] numbersTable = numbers.split(",");
 
-        if (numbersTable.length == 1) {
-            return stringToInt(numbers);
+        int sum = 0;
+
+        for (String aNumber : numbersTable) {
+            sum += stringToInt(aNumber);
         }
-        if (numbersTable.length == 2) {
-            return stringToInt(numbersTable[0]) + stringToInt(numbersTable[1]);
-        }
-        return stringToInt(numbersTable[0]) + stringToInt(numbersTable[1]) + stringToInt((numbersTable[2]));
+
+        return sum;
     }
 
     private static int stringToInt(String number) {
