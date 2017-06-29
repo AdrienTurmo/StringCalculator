@@ -12,4 +12,14 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    public void should_return_one_for_one_as_string() throws Exception {
+        String numbers = "1";
+
+        int result = StringCalculator.add(numbers);
+
+
+        assertThat(result).isEqualTo(1);
+    }
 }
