@@ -1,7 +1,7 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
-        if (numbers.equals("") || numbers.equals(",")) {
+        if (numbers.equals("")) {
             return 0;
         }
 
@@ -10,7 +10,10 @@ public class StringCalculator {
         if (numbersTable.length == 1) {
             return stringToInt(numbers);
         }
-        return stringToInt(numbersTable[0])+stringToInt(numbersTable[1]);
+        if (numbersTable.length == 2) {
+            return stringToInt(numbersTable[0]) + stringToInt(numbersTable[1]);
+        }
+        return stringToInt(numbersTable[0]) + stringToInt(numbersTable[1]) + stringToInt((numbersTable[2]));
     }
 
     private static int stringToInt(String number) {
