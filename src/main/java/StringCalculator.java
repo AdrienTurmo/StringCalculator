@@ -1,15 +1,20 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
-        if (numbers == "") {
+        if (numbers.equals("")) {
             return 0;
         }
-        if (numbers == "1") {
-            return 1;
+        return stringToInt(numbers);
+    }
+
+    private static int stringToInt(String number) {
+        char[] digits = number.toCharArray();
+        int intNumber = 0;
+        int powerOfTen = 1;
+        for (int index = digits.length - 1; index >= 0; index--, powerOfTen *= 10) {
+            intNumber += Character.getNumericValue(digits[index]) * powerOfTen;
         }
-        if (numbers == "50") {
-            return 50;
-        }
-        return 10;
+
+        return intNumber;
     }
 }
