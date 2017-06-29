@@ -40,4 +40,12 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(50);
     }
 
+    @Test
+    public void should_return_zero_when_passed_comma() throws Exception {
+        String numbers = ",";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(0);
+    }
 }

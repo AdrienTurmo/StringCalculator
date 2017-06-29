@@ -1,7 +1,7 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
-        if (numbers.equals("")) {
+        if (numbers.equals("")|| numbers.equals(",")) {
             return 0;
         }
         return stringToInt(numbers);
