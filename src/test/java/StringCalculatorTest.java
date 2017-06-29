@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -79,10 +80,19 @@ public class StringCalculatorTest {
 
     @Test
     public void should_return_six_when_passing_one_two_and_three_with_a_new_line() throws Exception {
-        String numbers = "1\n,2,3";
+        String numbers = "1\n2,3";
 
         int result = StringCalculator.add(numbers);
 
         assertThat(result).isEqualTo(6);
+    }
+
+    @Test
+    public void should_return_two_when_passing_one_and_one_with_a_semicolon() throws Exception {
+        String numbers = "//;\n1;1";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(2);
     }
 }

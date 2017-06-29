@@ -1,8 +1,7 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
-        numbers = numbers.replace("\n","");
-        String[] numbersTable = numbers.split(",");
+        String[] numbersTable = formatting(numbers);
 
         int sum = 0;
 
@@ -11,6 +10,20 @@ public class StringCalculator {
         }
 
         return sum;
+    }
+
+    private static String[] formatting(String numbers) {
+        String splitter = ",";
+        if (!numbers.contains(",") && numbers.contains("\n")) {
+            String[] lines = numbers.split("\n");
+            splitter = lines[0].replace("/","");
+            numbers = "";
+            for (int index = 1 ; index < lines.length ; index++) {
+                numbers += lines[index];
+            }
+        }
+        numbers = numbers.replace("\n", splitter);
+        return numbers.split(splitter);
     }
 
     private static int stringToInt(String number) {
