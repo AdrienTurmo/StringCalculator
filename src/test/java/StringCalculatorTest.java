@@ -76,4 +76,13 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(3);
 
     }
+
+    @Test
+    public void should_return_six_when_passing_one_two_and_three_with_a_new_line() throws Exception {
+        String numbers = "1\n,2,3";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(6);
+    }
 }

@@ -1,6 +1,7 @@
 public class StringCalculator {
 
     public static int add(String numbers) {
+        numbers = numbers.replace("\n","");
         String[] numbersTable = numbers.split(",");
 
         int sum = 0;
