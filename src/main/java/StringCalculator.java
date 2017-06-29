@@ -10,13 +10,7 @@ public class StringCalculator {
         if (numbersTable.length == 1) {
             return stringToInt(numbers);
         }
-        if (numbersTable[0].equals("0")) {
-            return stringToInt(numbersTable[1]);
-        }
-        if (numbersTable[1].equals("0")) {
-            return stringToInt(numbersTable[0]);
-        }
-        return 0;
+        return stringToInt(numbersTable[0])+stringToInt(numbersTable[1]);
     }
 
     private static int stringToInt(String number) {

@@ -66,4 +66,13 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void should_return_two_when_passed_one_and_one() throws Exception {
+        String numbers = "1,1";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(2);
+    }
 }
