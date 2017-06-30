@@ -1,7 +1,7 @@
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
 public class StringCalculatorTest {
 
@@ -96,10 +96,17 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(2);
     }
 
-    @Test(expected = NoStringAllowedError.class)
+    @Test(expected = NoNegativeAllowedError.class)
     public void should_return_a_negative_not_allowed_error() throws Exception {
         String numbers = "-1";
 
         StringCalculator.add(numbers);
+    }
+
+    @Test(expected = NoNegativeAllowedError.class)
+    public void should_return_a_negative_not_allowed_error_and_return_concerned_numbers() throws Exception {
+        String numbers = "-2";
+
+        assertThat(StringCalculator.add(numbers)).withFailMessage("-2");
     }
 }

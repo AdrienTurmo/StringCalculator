@@ -1,11 +1,11 @@
 public class StringCalculator {
 
-    public static int add(String numbers) throws NoStringAllowedError {
-        if (numbers.contains("-")) {
-            throw new NoStringAllowedError();
-        }
-
+    public static int add(String numbers) throws NoNegativeAllowedError {
         String[] numbersTable = formatting(numbers);
+
+        if (numbers.contains("-")) {
+            throw new NoNegativeAllowedError(numbersTable);
+        }
 
         int sum = 0;
 
