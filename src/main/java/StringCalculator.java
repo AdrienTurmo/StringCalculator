@@ -1,6 +1,10 @@
 public class StringCalculator {
 
-    public static int add(String numbers) {
+    public static int add(String numbers) throws NoStringAllowedError {
+        if (numbers.contains("-")) {
+            throw new NoStringAllowedError();
+        }
+
         String[] numbersTable = formatting(numbers);
 
         int sum = 0;

@@ -95,4 +95,11 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(2);
     }
+
+    @Test(expected = NoStringAllowedError.class)
+    public void should_return_a_negative_not_allowed_error() throws Exception {
+        String numbers = "-1";
+
+        StringCalculator.add(numbers);
+    }
 }
