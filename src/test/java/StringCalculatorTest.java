@@ -103,10 +103,23 @@ public class StringCalculatorTest {
         StringCalculator.add(numbers);
     }
 
-    @Test(expected = NoNegativeAllowedError.class)
+    @Test
     public void should_return_a_negative_not_allowed_error_and_return_concerned_numbers() throws Exception {
         String numbers = "-2";
+        try {
+            StringCalculator.add(numbers);
+        } catch (NoNegativeAllowedError e) {
+            assertThat(e.getMessage()).isEqualTo("-2");
+        }
+    }
 
-        assertThat(StringCalculator.add(numbers)).withFailMessage("-2");
+    @Test
+    public void should_return_a_negative_not_allowed_error_and_return_all_negative_numbers() throws Exception {
+        String numbers = "-2,3,-5,-6";
+        try {
+            StringCalculator.add(numbers);
+        } catch (NoNegativeAllowedError e) {
+            assertThat(e.getMessage()).isEqualTo("-2,-5,-6");
+        }
     }
 }
