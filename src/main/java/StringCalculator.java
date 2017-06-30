@@ -22,14 +22,15 @@ public class StringCalculator {
         String splitter = ",";
         if (!numbers.contains(",") && numbers.contains("\n")) {
             String[] lines = numbers.split("\n");
-            splitter = lines[0].replace("/","");
+            splitter = lines[0].replace("/","").replace("[","").replace("]","");
             numbers = "";
             for (int index = 1 ; index < lines.length ; index++) {
                 numbers += lines[index];
             }
         }
-        numbers = numbers.replace("\n", splitter);
-        return numbers.split(splitter);
+        numbers = numbers.replace("\n",",");
+        numbers = numbers.replace(splitter,",");
+        return numbers.split(",");
     }
 
     private static int stringToInt(String number) {

@@ -131,4 +131,13 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(5);
     }
+
+    @Test
+    public void should_handle_() throws Exception {
+        String numbers = "//[***]\n1***3***4";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(8);
+    }
 }
