@@ -26,18 +26,31 @@ public class StringCalculator {
 
     private static String checkForSeparator(String numbers) {
         if (!numbers.contains(",") && numbers.contains("\n")) {
+
             String[] lines = numbers.split("\n");
             String[] splitters = lines[0].replace("/","").replace("]","").replace("[",",").split(",");
-            numbers = "";
-            for (int index = 1 ; index < lines.length ; index++) {
-                numbers += lines[index];
-            }
-            if (splitters.length == 1) {
-                numbers = numbers.replace(splitters[0],",");
-            }
-            for (int index = 1 ; index < splitters.length ; index++) {
-                numbers = numbers.replace(splitters[index], ",");
-            }
+
+            numbers = reformNumbers(lines);
+
+            numbers = replaceSplittersByComma(numbers, splitters);
+        }
+        return numbers;
+    }
+
+    private static String replaceSplittersByComma(String numbers, String[] splitters) {
+        if (splitters.length == 1) {
+            numbers = numbers.replace(splitters[0],",");
+        }
+        for (int index = 1 ; index < splitters.length ; index++) {
+            numbers = numbers.replace(splitters[index], ",");
+        }
+        return numbers;
+    }
+
+    private static String reformNumbers(String[] lines) {
+        String numbers = "";
+        for (int index = 1 ; index < lines.length ; index++) {
+            numbers += lines[index];
         }
         return numbers;
     }
