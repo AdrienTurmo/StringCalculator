@@ -122,4 +122,13 @@ public class StringCalculatorTest {
             assertThat(e.getMessage()).isEqualTo("-2,-5,-6");
         }
     }
+
+    @Test
+    public void should_ignore_numbers_greater_than_1000() throws Exception {
+        String numbers = "5,1001";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(5);
+    }
 }

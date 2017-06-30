@@ -8,9 +8,11 @@ public class StringCalculator {
         }
 
         int sum = 0;
-
         for (String aNumber : numbersTable) {
-            sum += stringToInt(aNumber);
+            int number = stringToInt(aNumber);
+            if (number <= 1000) {
+                sum += number;
+            }
         }
 
         return sum;
