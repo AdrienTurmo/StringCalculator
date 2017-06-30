@@ -19,18 +19,27 @@ public class StringCalculator {
     }
 
     private static String[] formatting(String numbers) {
-        String splitter = ",";
+        numbers = checkForSeparator(numbers);
+        numbers = numbers.replace("\n",",");
+        return numbers.split(",");
+    }
+
+    private static String checkForSeparator(String numbers) {
         if (!numbers.contains(",") && numbers.contains("\n")) {
             String[] lines = numbers.split("\n");
-            splitter = lines[0].replace("/","").replace("[","").replace("]","");
+            String[] splitters = lines[0].replace("/","").replace("]","").replace("[",",").split(",");
             numbers = "";
             for (int index = 1 ; index < lines.length ; index++) {
                 numbers += lines[index];
             }
+            if (splitters.length == 1) {
+                numbers = numbers.replace(splitters[0],",");
+            }
+            for (int index = 1 ; index < splitters.length ; index++) {
+                numbers = numbers.replace(splitters[index], ",");
+            }
         }
-        numbers = numbers.replace("\n",",");
-        numbers = numbers.replace(splitter,",");
-        return numbers.split(",");
+        return numbers;
     }
 
     private static int stringToInt(String number) {

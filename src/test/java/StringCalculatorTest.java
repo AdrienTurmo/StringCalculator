@@ -133,11 +133,20 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void should_handle_() throws Exception {
+    public void should_handle_separator_of_any_size() throws Exception {
         String numbers = "//[***]\n1***3***4";
 
         int result = StringCalculator.add(numbers);
 
         assertThat(result).isEqualTo(8);
+    }
+
+    @Test
+    public void should_handle_multiple_separator_of_any_size() throws Exception {
+        String numbers = "//[*][%]\n6*1%4";
+
+        int result = StringCalculator.add(numbers);
+
+        assertThat(result).isEqualTo(11);
     }
 }
